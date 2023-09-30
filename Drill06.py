@@ -22,6 +22,8 @@ moveCount = 0
 
 
 def mouse_event():
+    global loop
+
     events = get_events()
 
     for event in events:
@@ -60,6 +62,9 @@ def moveBoy():
 
     if listCount != moveCount + 1:
         for i in range(0, 100 + 1, 3):
+            if loop == False:
+                break
+
             t = i / 100
             x = (1 - t) * List[moveCount][0] + t * List[moveCount + 1][0]
             y = (1 - t) * List[moveCount][1] + t * List[moveCount + 1][1]
